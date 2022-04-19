@@ -1,0 +1,163 @@
+@font-face {
+    font-family: 'Spartan';
+    src: url('fonts/Spartan-Bold.ttf') format('truetype');
+    font-weight: 700;
+}
+
+@font-face {
+    font-family: 'Spartan';
+    src: url('fonts/Spartan-Medium.ttf') format('truetype');
+    font-weight: 500;
+}
+
+@font-face {
+    font-family: 'Spartan';
+    src: url('fonts/Spartan-Regular.ttf') format('truetype');
+    font-weight: 400;
+}
+
+:root{
+    --very-dark-magenta: hsl(300, 43%, 22%);
+    --soft-pink: hsl(333, 80%, 67%);
+
+    --dark-grayish-magenta: hsl(303, 10%, 53%);
+    --light-grayish-magenta: hsl(300, 24%, 96%);
+}
+
+*{
+    margin: 0;
+    padding: 0;
+}
+
+body{
+    font-family: 'Spartan';
+    font-size: 15px;
+    color: var(--dark-grayish-magenta);
+    padding: 1rem;
+}
+
+main{
+    display: grid;
+    grid-template-areas: 
+        "header"
+        "ratings"
+        "reviews";
+        gap: 1em;
+}
+
+blockquote{
+    line-height: 1.75;
+}
+
+main > * + * {
+    margin-block: 1rem;
+}
+
+@media screen and (min-width: 600px) {
+    main{
+        grid-template-areas: 
+        "header ratings"
+        "reviews reviews";
+        grid-template-columns: 1fr 1fr;
+        gap: 3rem 10rem;
+    }
+}
+
+header{
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    text-align: center;
+}
+
+header h1{
+    color: var(--very-dark-magenta);
+}
+
+.stars{
+    display: flex;
+    gap: .5rem;
+}
+
+.ratings{
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.ratings li{
+    background-color: var(--light-grayish-magenta);
+    color: var(--very-dark-magenta);
+    font-weight: bold;
+    display: inline-flex;
+    gap: 1rem;
+    align-items: center;
+    flex-direction: column;
+    padding-block: 1rem;
+    border-radius: .5rem;
+}
+
+@media screen and (min-width: 600px) {
+    .ratings{
+        align-items: center;
+    }
+
+    .ratings li{
+        flex-direction: row;
+        padding-inline-start: 1rem;
+        padding-inline-end: 5rem;
+    }
+
+    :is(.ratings, .reviews) :first-child{
+        align-self: flex-start;
+    }
+
+    :is(.ratings, .reviews) :last-child{
+        align-self: flex-end;
+    }
+}
+
+.reviews{
+    grid-area: reviews;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.reviews li{
+    background-color: var(--very-dark-magenta);
+    color: white;
+    padding: 2rem;
+    border-radius: .5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+@media screen and (min-width: 600px) {
+    .reviews {
+        flex-direction: row;
+        min-height: 20rem;
+        align-items: center;
+    }    
+}
+
+.buyer{
+    color: var(--soft-pink);
+    font-weight: 400;
+}
+
+.author{
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+}
+
+.author img{
+    border-radius: 50%;
+    height: 3rem;
+}
+
+.author .name{
+    font-weight: bold;
+}
