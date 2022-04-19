@@ -53,13 +53,13 @@ main > * + * {
     margin-block: 1rem;
 }
 
-@media screen and (min-width: 600px) {
+@media screen and (min-width: 700px) {
     main{
         grid-template-areas: 
         "header ratings"
         "reviews reviews";
         grid-template-columns: 1fr 1fr;
-        gap: 3rem 10rem;
+        gap: 3rem max(5rem, 10vw);
     }
 }
 
@@ -95,9 +95,10 @@ header h1{
     flex-direction: column;
     padding-block: 1rem;
     border-radius: .5rem;
+    min-width: 405px;
 }
 
-@media screen and (min-width: 600px) {
+@media screen and (min-width: 700px) {
     .ratings{
         align-items: center;
     }
@@ -105,7 +106,7 @@ header h1{
     .ratings li{
         flex-direction: row;
         padding-inline-start: 1rem;
-        padding-inline-end: 5rem;
+        padding-inline-end: 1rem;
     }
 
     :is(.ratings, .reviews) :first-child{
@@ -134,7 +135,7 @@ header h1{
     gap: 1rem;
 }
 
-@media screen and (min-width: 600px) {
+@media screen and (min-width: 700px) {
     .reviews {
         flex-direction: row;
         min-height: 20rem;
